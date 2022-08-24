@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/countToFifty/static/css/main.6e73c699.css",
+    "main.js": "/countToFifty/static/js/main.9d768393.js",
+    "static/js/787.e12a6569.chunk.js": "/countToFifty/static/js/787.e12a6569.chunk.js",
+    "index.html": "/countToFifty/index.html",
+    "main.6e73c699.css.map": "/countToFifty/static/css/main.6e73c699.css.map",
+    "main.9d768393.js.map": "/countToFifty/static/js/main.9d768393.js.map",
+    "787.e12a6569.chunk.js.map": "/countToFifty/static/js/787.e12a6569.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e73c699.css",
+    "static/js/main.9d768393.js"
+  ]
+}
