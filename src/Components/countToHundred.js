@@ -2,27 +2,26 @@ import React, { useState } from "react";
 import "./countToHundred.css";
 import Button from "./button.js";
 
-const WIN_NUMBER = 10;
+const WIN_NUMBER = 50;
+var isGameOver = false;
 
 function CountToHundred(){
     const [number, setNumber] = useState(0);
     const [player, setPlayer] = useState(1);
-    var isGameOver = false;
+    
     var value = 0;
     var inputNumber;
 
     function getData(val){
         if(!isGameOver){
-            inputNumber = Number(val.target.value);
-            console.log(inputNumber);
+            inputNumber = Number(val);
             value = number + inputNumber;
         }
     }
 
     function handleClick(events){
         getData(events.target.name);
-        console.log(events.target.name);
-        if(value !== 0)
+        if(value !== 0  && !isGameOver){
             if(inputNumber < 10){
                 setNumber(value);
                 
@@ -37,19 +36,28 @@ function CountToHundred(){
             }
             else 
                 console.log("Value is double digit");
+        }
+    }
+
+    function resetGame(){
+        isGameOver = false;
+        setPlayer(1);
+        setNumber(0);
+        value = 0;
     }
 
     let buttons = [];
     for(var i = 1; i < 10; i++){
-        buttons.push(<Button id={i} data={i} onClick={handleClick}/>);
+        buttons.push(<Button data={i} onClick={handleClick}/>);
         if(i % 3 === 0)
             buttons.push(<br />);
     }
     return (
         <div>
             <h1>Count To Fifty</h1>
-            <h2>Player {player}</h2>
+            <h2>PLAYER {player}</h2>
             <p className="number">{number}</p>
+            <br />
 
             {/* <input type="text" onChange={getData}/> */}
             {buttons}
@@ -59,7 +67,13 @@ function CountToHundred(){
             <br />
             <br />
 
-            {isGameOver && <p>Player {player} won</p>}
+            {isGameOver && <div>
+                <p>PLAYER {player} WON</p>
+                <button onClick={resetGame}>Reset Game</button>
+                </div>}
+
+            <br />
+            <p style={{color:"white"}}>Developed by Vikash Anand S</p>
         </div>
     );
 }
